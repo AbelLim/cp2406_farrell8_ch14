@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class DebugFOurteen2 extends JFrame implements ItemListener
+public class DebugFourteen2 extends JFrame implements ItemListener
 {
    FlowLayout flow = new FlowLayout();
    JComboBox<String> payMethod = new JComboBox<String>();
@@ -17,12 +17,12 @@ public class DebugFOurteen2 extends JFrame implements ItemListener
    int feePct = 0;
    String output;
    int fee = 0;
-   public DebugFourteen2()
+   public  DebugFourteen2()
    {
       super("Pay List");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setLayout(flow)
-      payMethod.addItemLisener(payMethod);
+      setLayout(flow);
+      payMethod.addItemListener(this);
       add(payList);
       add(payMethod);
       payMethod.addItem("Credit card");
@@ -37,12 +37,12 @@ public class DebugFOurteen2 extends JFrame implements ItemListener
       cframe.setVisible(true);
    }
    @Override
-   public void itemStateChanged()
+   public void itemStateChanged(ItemEvent list)
    {
       Object source = list.getSource();
-      if(source = payMethod)
+      if(source == payMethod)
       {
-         int fee = payMethod.getSelectedIndex();
+         int x = payMethod.getSelectedIndex();
          feePct = fees[x];
          output = feePct + " " + pctMsg;
          totFees.setText(output);
